@@ -1,0 +1,19 @@
+{
+  "layers": [
+    2,
+    16,
+    1
+  ],
+  "hidden_activation": "tanh",
+  "init": "xavier",
+  "init_seed": 3,
+  "optimizer": "momentum",
+  "lr": 0.5,
+  "momentum": 0.9,
+  "epochs": 300,
+  "batch_size": 200,
+  "l2": 0.0,
+  "shuffle_seed": 5,
+  "final_train_acc": 0.995,
+  "final_val_acc": 0.975
+}
