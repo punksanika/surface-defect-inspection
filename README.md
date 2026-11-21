@@ -3,7 +3,8 @@
 Deep Learning PBL project. The system looks at a photo of a metal nut and decides **PASS / REJECT**,
 shows **where** the defect is (heatmap), names the **defect type** (bent / color / flip / scratch) and can
 draw **boxes** around defects. The main detector, **PatchCore**, learns only from *good* nuts, so it can flag
-defects it has never seen. The final model also runs as a **Java application** (ONNX Runtime).
+defects it has never seen. The whole project is **Python only** and is demonstrated in a **Streamlit** app;
+the deep-learning fundamentals (tensors, backprop, optimizers, learning rules) are written from scratch in NumPy.
 
 > Research prototype on MVTec AD (licence CC BY-NC-SA 4.0, non-commercial). Not validated for production use.
 
@@ -20,7 +21,6 @@ flowchart LR
     E -- yes --> R[REJECT]
     R --> F[ResNet-18 classifier<br/>defect type]
     R --> G[RetinaNet / Faster R-CNN<br/>boxes]
-    C -. ONNX export .-> J[Java Inspector app]
 ```
 
 ## Data split (no leakage, seed 42, `splits.json`)
@@ -57,22 +57,38 @@ Threshold chosen on the validation set (maximum F1).
 | Faster R-CNN | 0.820 | 0.900 | 0.750 | 1.000 | 0.630 | 157.9 |
 | RetinaNet | 0.549 | 0.603 | 0.268 | 1.000 | 0.324 | 86.5 |
 
-### 4. Java app (ONNX Runtime) and robustness
-Java and Python give the same PASS/REJECT decision on 45/45 test images.
+### 4. Robustness (`src/evaluate_robustness.py`, test set)
+Both models keep their validation-chosen thresholds (2.049 original, 2.136 noise-robust).
 
 | condition | original: caught | original: false rejects | noise-robust: caught | noise-robust: false rejects |
 |---|---|---|---|---|
 | clean | 18/19 | 1/26 (3.8%) | 18/19 | 1/26 (3.8%) |
 | brighter 20% | 18/19 | 1/26 (3.8%) | 18/19 | 1/26 (3.8%) |
-| darker 20% | 18/19 | 1/26 (3.8%) | 18/19 | 0/26 (0.0%) |
-| Gaussian noise σ=0.03 | 18/19 | **14/26 (53.8%)** | **15/19** | **0/26 (0.0%)** |
+| darker 20% | 18/19 | 1/26 (3.8%) | 18/19 | 1/26 (3.8%) |
+| Gaussian noise σ=0.03 | 19/19 | **16/26 (61.5%)** | **15/19** | **0/26 (0.0%)** |
 
-**Noise fix.** The original model rejected 14 of 26 good nuts when noise was added. Fix: put one noisy copy
+**Noise fix.** The original model rejected 16 of 26 good nuts when noise was added. Fix: put one noisy copy
 of every good training image into the memory bank (same bank size), so "good + noise" counts as normal. The
 setting was chosen on the **validation set only** from 10 candidates (input blur 0–2 × 0/1 noisy copies), see
-`experiments/noise_robustness/val_grid.csv`. Honest result: noise false rejects 14 → 0, but missed defects
-under noise 1 → 4 (subtle colour and scratch defects look similar to noise). Details:
-`experiments/noise_robustness/before_after.md`.
+`experiments/noise_robustness/val_grid.csv`. Honest result: noise false rejects 16 → 0, but missed defects
+under noise 0 → 4 (subtle colour and scratch defects look similar to noise). Details, AUROC, speed and memory:
+`experiments/robustness/before_after.md` and `results.csv`.
+
+### 5. Fundamentals from scratch (`fundamentals/`, NumPy only, course requirements 3–6)
+From `python -m fundamentals.run_all` (`experiments/fundamentals/summary.json`).
+
+| req. | experiment | result |
+|---|---|---|
+| 3 | SVD by Jacobi rotations vs `np.linalg.svd` (64×64 image) | max singular-value difference 1.95e-13; relative error rank 1 / 5 / 20 = 0.560 / 0.239 / 0.105 |
+| 3 | Numerical gradient check (central difference) | max relative error 1.49e-09 at h = 1e-5 |
+| 4 | Single McCulloch-Pitts neuron for XOR (grid search) | 0 of 2197 settings work |
+| 4 | MLP: manual backprop vs numerical gradient; XOR | max relative error 2.13e-09; XOR accuracy 1.00 |
+| 5 | Optimizers on two moons (validation accuracy) | Batch GD 0.945, SGD 0.960, Momentum 0.975, Nesterov 0.975 |
+| 5 | Initialisation, deep tanh net (validation accuracy) | zero 0.500, small normal 0.880, Xavier 0.980, He 0.970 |
+| 5 | Overfitting on 30 points (train / validation accuracy) | baseline 1.000 / 0.940, L2 = 0.01 0.867 / 0.812, augmentation ×10 0.952 / 0.940 |
+| 5 | Input standardisation (validation accuracy) | unnormalised 0.500 → standardised 0.990 |
+| 6 | Hebbian vs Oja; Oja vs own-SVD first principal component | Hebbian ‖w‖ = 6.694e+03 (explodes); Oja ‖w‖ = 1.0001, \|cos\| = 1.0000 |
+| 6 | Hopfield recall (20% pixels flipped) | wrong pixels 18 / 27 / 21 → 0 / 0 / 0; energy never increased |
 
 ## Figures
 
@@ -84,7 +100,7 @@ under noise 1 → 4 (subtle colour and scratch defects look similar to noise). D
 |---|---|---|
 | ![](experiments/vae/reconstructions.png) | ![](experiments/report_transformer/attention.png) | ![](experiments/cls_resnet18/conv1_filters.png) |
 
-More: `experiments/*/figures/`, `report_figs/`, `java/out/`.
+More: `experiments/*/figures/`, `experiments/fundamentals/`.
 
 ## Project structure
 
@@ -97,11 +113,10 @@ src/classifier.py           ResNet-18 / GoogLeNet defect-type classifier
 src/detector.py             RetinaNet / Faster R-CNN boxes
 src/vae.py                  variational autoencoder (generative model)
 src/report_transformer.py   small transformer that writes an inspection report
-src/export_onnx.py          export PatchCore to ONNX + memory bank for Java
-app/streamlit_app.py        demo app: Inspection, Noise demo, Results, Pipeline
-java/app/Inspector.java     deployed inspection app (ONNX Runtime Java)
-java/src/main/java/dl/      deep learning fundamentals from scratch in Java
-deploy/, deploy_robust/     files the Java app loads (original / noise-robust model)
+src/evaluate_robustness.py  test both PatchCore models under brightness and noise changes
+fundamentals/               deep-learning fundamentals from scratch in NumPy (requirements 3-6)
+tests/                      pytest checks for the fundamentals
+app/streamlit_app.py        demo app: Inspection, Noise demo, Results, Pipeline, Fundamentals
 experiments/                metrics, logs and figures of every run
 ```
 
@@ -115,10 +130,11 @@ pip install -r requirements.txt
 ```
 - Dataset: download MVTec AD `metal_nut` from https://www.mvtec.com/company/research/datasets/mvtec-ad
   and unpack it so that `data/mvtec/metal_nut/train`, `test`, `ground_truth` exist.
-- Java: install Java 25 and put `onnxruntime-1.23.0.jar` (Maven Central,
-  `com.microsoft.onnxruntime:onnxruntime:1.23.0`) into `lib/`.
 
 The `.pt` model files are not in the repository (too large). Re-create them with the training commands below.
+
+**Offline use:** the ImageNet / COCO pretrained weights are downloaded once by torchvision into
+`~/.cache/torch/hub/checkpoints/`. After that, every script and the app run without internet.
 
 ### 1. Data split
 ```bash
@@ -143,34 +159,24 @@ python src/noise_robustness.py      # ~20 min; validation only -> experiments/no
 python src/patchcore.py --noisy_copies 1 --aug_noise 0.03 --coreset_cpu --out experiments/patchcore_r18_robust
 ```
 
-### 4. Export for Java and run the Java app
+### 4. Robustness test (both models, test set)
 ```bash
-python src/export_onnx.py                                                              # -> deploy/
-python src/export_onnx.py --pc_dir experiments/patchcore_r18_robust --out deploy_robust  # -> deploy_robust/
-
-javac -cp lib/onnxruntime-1.23.0.jar -d target/app java/app/Inspector.java
-java -cp target/app:lib/onnxruntime-1.23.0.jar Inspector evaluate                  # original  -> experiments/java_app/
-java -cp target/app:lib/onnxruntime-1.23.0.jar Inspector evaluate deploy_robust    # robust    -> experiments/java_app_robust/
-java -cp target/app:lib/onnxruntime-1.23.0.jar Inspector inspect data/mvtec/metal_nut/test/scratch/020.png
+python src/evaluate_robustness.py   # -> experiments/robustness/ (results.json, results.csv, before_after.md)
 ```
 
-### 5. Java fundamentals (from scratch, no libraries)
+### 5. Fundamentals from scratch (NumPy only)
 ```bash
-cd java
-javac -d target/classes src/main/java/dl/*.java
-java -cp target/classes dl.Demo3Sandbox     # maths sandbox
-java -cp target/classes dl.Demo4Neurons     # neurons, MLP, backpropagation
-java -cp target/classes dl.Demo5Training    # optimizers, initialisation, generalisation
-java -cp target/classes dl.Demo6Rules       # learning rules + Hopfield network
+python -m fundamentals.run_all      # all experiments + summary -> experiments/fundamentals/
+python -m pytest                    # checks: broadcasting, reshape, SVD, backprop, XOR, Oja, Hopfield
 ```
-Figures are written to `java/out/`.
 
 ### 6. Demo app
 ```bash
 streamlit run app/streamlit_app.py
 ```
 Pages: **Inspection** (one image → PASS/REJECT, heatmap, type, boxes), **Noise demo** (slider adds noise,
-original vs robust model), **Results** (all tables, read live from `experiments/`), **Pipeline** (diagram).
+original vs robust model), **Results** (all tables, read live from `experiments/`), **Pipeline** (diagram),
+**Fundamentals** (NumPy modules: saved results + live demos of broadcasting, XOR training and Hopfield recall).
 
 ## Limitations
 - Small test set (45 images): one image changes a rate by 2–4 percentage points.
