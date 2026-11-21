@@ -14,6 +14,14 @@ Pipeline (shapes for resnet18, 224x224 input):
   Memory bank  = coreset subsample of all patch vectors from good training images.
   Patch score  = distance to nearest memory-bank vector (kNN, k=1).
   Image score  = max patch score.          Anomaly map = 28x28 scores -> upsample -> blur.
+
+Noise-robust variant (optional, added for the robustness fix):
+    python src/patchcore.py --blur_sigma 1.0 --noisy_copies 1 --aug_noise 0.03 --out experiments/patchcore_r18_robust
+  --blur_sigma   : light Gaussian blur on the input image, built INTO the feature extractor
+                   (so it is also inside the ONNX file and the Java app gets it automatically).
+  --noisy_copies : for every good training image, also put N noisy copies into the memory bank,
+                   so "good nut + sensor noise" is remembered as normal.
+  Defaults (0, 0) give exactly the original model.
 """
 import argparse
 import json
@@ -43,9 +51,14 @@ def get_device():
 
 
 # ---------------------------------------------------------------- data
-def load_image(path):
+def load_image(path, noise_sigma=0.0, generator=None):
+    """Load, resize to 224, (optionally add noise), normalise.
+    noise_sigma > 0 adds Gaussian noise to pixel values in [0,1] and clips back to [0,1].
+    This is EXACTLY what the Java robustness test does (Inspector.perturb), so both agree."""
     img = Image.open(path).convert("RGB").resize((IMG_SIZE, IMG_SIZE), Image.BILINEAR)
     t = TF.to_tensor(img)                       # (3,H,W) in [0,1]
+    if noise_sigma > 0:
+        t = (t + noise_sigma * torch.randn(t.shape, generator=generator)).clamp(0, 1)
     return TF.normalize(t, MEAN, STD)
 
 
@@ -57,9 +70,32 @@ def load_mask(path):
 
 
 # ---------------------------------------------------------------- model
-class PatchFeatureExtractor(torch.nn.Module):
-    def __init__(self, backbone="resnet18"):
+class GaussianBlur(torch.nn.Module):
+    """Fixed (not learned) Gaussian blur, applied to each colour channel separately.
+    Why it helps against noise: pixel noise is random from pixel to pixel (high frequency);
+    averaging each pixel with its neighbours cancels much of it, while the nut's shape
+    and larger defects (bends, flips, colour patches) survive.
+    Blur is linear and the kernel sums to 1, so blurring the normalised image is the same as
+    blurring the raw image and then normalising."""
+    def __init__(self, sigma):
         super().__init__()
+        radius = max(1, int(round(3 * sigma)))           # cover +-3 sigma
+        x = torch.arange(-radius, radius + 1, dtype=torch.float32)
+        k1 = torch.exp(-x ** 2 / (2 * sigma ** 2)); k1 = k1 / k1.sum()
+        k2 = torch.outer(k1, k1)                          # 2-D kernel = outer product of 1-D
+        self.register_buffer("kernel", k2.expand(3, 1, -1, -1).clone())  # (3,1,k,k): one per channel
+        self.radius = radius
+
+    def forward(self, x):                                 # x: (B,3,H,W)
+        x = F.pad(x, [self.radius] * 4, mode="reflect")   # mirror the border, no dark frame
+        return F.conv2d(x, self.kernel, groups=3)         # groups=3 -> channels blurred separately
+
+
+class PatchFeatureExtractor(torch.nn.Module):
+    def __init__(self, backbone="resnet18", blur_sigma=0.0):
+        super().__init__()
+        # blur_sigma = 0 -> no blur (original model)
+        self.blur = GaussianBlur(blur_sigma) if blur_sigma > 0 else torch.nn.Identity()
         if backbone == "resnet18":
             net = torchvision.models.resnet18(weights="IMAGENET1K_V1")
         elif backbone == "wide_resnet50_2":
@@ -71,7 +107,7 @@ class PatchFeatureExtractor(torch.nn.Module):
 
     @torch.no_grad()
     def forward(self, x):                       # x: (B,3,224,224)
-        f = self.body(x)
+        f = self.body(self.blur(x))
         l2, l3 = f["l2"], f["l3"]               # (B,C2,28,28), (B,C3,14,14)
         l2 = F.avg_pool2d(l2, 3, stride=1, padding=1)
         l3 = F.avg_pool2d(l3, 3, stride=1, padding=1)
@@ -104,6 +140,30 @@ def greedy_coreset(feats, ratio, proj_dim=128, seed=0):
         selected.append(idx)
         min_d = torch.minimum(min_d, torch.linalg.norm(z - z[idx], dim=1))
     return torch.cat(selected)
+
+
+@torch.no_grad()
+def build_memory_bank(extractor, records, device, coreset_ratio=0.1, noisy_copies=0, aug_noise=0.03, seed=0,
+                      coreset_cpu=False):
+    """Memory bank = coreset of patch features from GOOD training images.
+    noisy_copies > 0: each image is also added `noisy_copies` times with Gaussian noise (sigma=aug_noise),
+    so the bank also contains 'good + noise' patches.
+    The coreset keeps the SAME number of vectors as the original model (ratio / (1+copies)), so the
+    bank size and the inference speed do not change -> a fair comparison.
+    coreset_cpu=True runs the greedy coreset on CPU (measured ~2x faster than MPS on this Mac,
+    because the loop is thousands of tiny steps)."""
+    g = torch.Generator().manual_seed(seed)       # fixed seed -> same noisy copies every run
+    feats = []
+    for r in records:
+        feats.append(to_patches(extractor(load_image(r["path"]).unsqueeze(0).to(device))))
+        for _ in range(noisy_copies):
+            x = load_image(r["path"], noise_sigma=aug_noise, generator=g)
+            feats.append(to_patches(extractor(x.unsqueeze(0).to(device))))
+    feats = torch.cat(feats)                       # (N_img*(1+copies)*784, C)
+    if coreset_cpu:
+        feats = feats.cpu()
+    idx = greedy_coreset(feats, coreset_ratio / (1 + noisy_copies))
+    return feats[idx].contiguous().to(device), tuple(feats.shape)
 
 
 @torch.no_grad()
@@ -144,10 +204,12 @@ def binary_report(scores, labels, thr):
             "f1": float(2 * prec * rec / max(prec + rec, 1e-9))}
 
 
-def evaluate(extractor, bank, records, device):
+def evaluate(extractor, bank, records, device, noise_sigma=0.0, seed=0):
+    """noise_sigma > 0 -> evaluate on noisy copies of the images (robustness test)."""
+    g = torch.Generator().manual_seed(seed)
     scores, labels, maps, masks, times = [], [], [], [], []
     for r in records:
-        x = load_image(r["path"])
+        x = load_image(r["path"], noise_sigma=noise_sigma, generator=g)
         t0 = time.perf_counter()
         s, amap = score_image(extractor, bank, x, device)
         times.append(time.perf_counter() - t0)
@@ -195,6 +257,10 @@ def main():
     ap.add_argument("--backbone", default="resnet18")
     ap.add_argument("--coreset_ratio", type=float, default=0.1)
     ap.add_argument("--out", default="experiments/patchcore_r18")
+    ap.add_argument("--blur_sigma", type=float, default=0.0, help="input Gaussian blur (0 = off)")
+    ap.add_argument("--noisy_copies", type=int, default=0, help="noisy copies per good image in the bank")
+    ap.add_argument("--aug_noise", type=float, default=0.03, help="noise sigma of those copies")
+    ap.add_argument("--coreset_cpu", action="store_true", help="run the coreset on CPU (faster on Mac)")
     args = ap.parse_args()
     out = Path(args.out); out.mkdir(parents=True, exist_ok=True)
     (out / "config.json").write_text(json.dumps(vars(args), indent=2))
@@ -202,20 +268,17 @@ def main():
     device = get_device(); print("Device:", device)
     torch.manual_seed(0)
     S = json.loads(Path(args.splits).read_text())["splits"]
-    extractor = PatchFeatureExtractor(args.backbone).to(device)
+    extractor = PatchFeatureExtractor(args.backbone, args.blur_sigma).to(device)
 
     # --- 1. build memory bank from GOOD training images only
     t0 = time.time()
-    feats = []
-    for r in S["train_good"]:
-        f = extractor(load_image(r["path"]).unsqueeze(0).to(device))
-        feats.append(to_patches(f))
-    feats = torch.cat(feats)                                   # (N_img*784, C)
-    print(f"All patch features: {tuple(feats.shape)}")
-    idx = greedy_coreset(feats, args.coreset_ratio)
-    bank = feats[idx].contiguous()
+    bank, all_shape = build_memory_bank(extractor, S["train_good"], device, args.coreset_ratio,
+                                        args.noisy_copies, args.aug_noise, coreset_cpu=args.coreset_cpu)
+    print(f"All patch features: {all_shape}")
     print(f"Memory bank after coreset: {tuple(bank.shape)}  ({time.time()-t0:.1f}s)")
-    torch.save({"bank": bank.cpu(), "backbone": args.backbone}, out / "memory_bank.pt")
+    # blur_sigma is saved with the bank so every loader rebuilds the SAME extractor
+    torch.save({"bank": bank.cpu(), "backbone": args.backbone, "blur_sigma": args.blur_sigma},
+               out / "memory_bank.pt")
 
     # --- 2. VALIDATION: choose image threshold and pixel threshold
     vs, vl, vmaps, vmasks, _ = evaluate(extractor, bank, S["val"], device)

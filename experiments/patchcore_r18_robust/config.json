@@ -1,0 +1,10 @@
+{
+  "splits": "splits.json",
+  "backbone": "resnet18",
+  "coreset_ratio": 0.1,
+  "out": "experiments/patchcore_r18_robust",
+  "blur_sigma": 0.0,
+  "noisy_copies": 1,
+  "aug_noise": 0.03,
+  "coreset_cpu": true
+}

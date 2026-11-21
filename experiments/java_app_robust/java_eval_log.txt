@@ -1,0 +1,18 @@
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by ai.onnxruntime.OnnxRuntime in an unnamed module (file:/Users/sanikarangra/surface-defect-inspection/lib/onnxruntime-1.23.0.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+Loaded ONNX model + memory bank (14896 x 384), threshold 2.1357
+
+[clean]  AUROC 0.966 | TP 18 FP 1 FN 1 TN 25 | catch 94.7%  FRR 3.8%  F1 0.947 | 327.2 ms/img (3.1 FPS)
+  parity with Python: decisions agree on 45/45 images, max |score difference| = 0.0653
+
+[brighter_20pct]  AUROC 0.964 | TP 18 FP 1 FN 1 TN 25 | catch 94.7%  FRR 3.8%  F1 0.947 | 347.4 ms/img (2.9 FPS)
+
+[darker_20pct]  AUROC 0.966 | TP 18 FP 0 FN 1 TN 26 | catch 94.7%  FRR 0.0%  F1 0.973 | 347.9 ms/img (2.9 FPS)
+
+[noise_sigma_0.03]  AUROC 0.974 | TP 15 FP 0 FN 4 TN 26 | catch 78.9%  FRR 0.0%  F1 0.882 | 348.4 ms/img (2.9 FPS)
+
+Java heap in use: 87 MB (memory bank alone: 22.9 MB)
+Per-image results: experiments/java_app_robust/java_eval.csv

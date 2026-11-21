@@ -32,6 +32,11 @@ import java.util.stream.IntStream;
  * Usage (from the project folder):
  *   java -cp target/app:lib/onnxruntime-1.23.0.jar Inspector inspect <image.png>
  *   java -cp target/app:lib/onnxruntime-1.23.0.jar Inspector evaluate
+ *
+ * Optional last argument = model folder (default "deploy"), e.g. the noise-robust model:
+ *   java -cp target/app:lib/onnxruntime-1.23.0.jar Inspector evaluate deploy_robust
+ *   (results go to experiments/java_app_robust/ so the original results are kept)
+ * Any input blur is inside the .onnx file, so this Java code does not need to know about it.
  */
 public class Inspector {
     final int size, C, H, W, M;
@@ -215,10 +220,12 @@ public class Inspector {
     }
 
     public static void main(String[] args) throws Exception {
-        Path deploy = Path.of("deploy");
+        String mode = args.length > 0 ? args[0] : "evaluate";
+        // model folder: "deploy" by default; inspect takes it as 3rd argument, evaluate as 2nd
+        int dirArg = mode.equals("inspect") ? 2 : 1;
+        Path deploy = Path.of(args.length > dirArg ? args[dirArg] : "deploy");
         Inspector ins = new Inspector(deploy);
         System.out.printf("Loaded ONNX model + memory bank (%d x %d), threshold %.4f%n", ins.M, ins.C, ins.threshold);
-        String mode = args.length > 0 ? args[0] : "evaluate";
         if (mode.equals("inspect")) {
             Path img = Path.of(args[1]);
             BufferedImage src = ImageIO.read(img.toFile());
@@ -226,11 +233,13 @@ public class Inspector {
             Result r = ins.inspect(ins.toCHW(src));
             System.out.printf("%s -> %s  (score %.3f, threshold %.3f, %.1f ms)%n", img.getFileName(),
                     r.reject() ? "REJECT" : "PASS", r.score(), ins.threshold, r.ms());
-            Path out = Path.of("deploy", "heatmap_" + img.getFileName());
+            Path out = deploy.resolve("heatmap_" + img.getFileName());
             ins.saveHeatmap(src, r.patchScores(), Math.max(r.score(), ins.threshold * 1.5), out);
             System.out.println("Heatmap saved to " + out);
         } else {
-            ins.evaluate(deploy, Path.of("experiments", "java_app"));
+            String outName = deploy.getFileName().toString().equals("deploy") ? "java_app"
+                    : "java_app" + deploy.getFileName().toString().replace("deploy", "");   // deploy_robust -> java_app_robust
+            ins.evaluate(deploy, Path.of("experiments", outName));
         }
     }
 }
