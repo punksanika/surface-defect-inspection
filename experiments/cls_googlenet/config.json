@@ -1,0 +1,8 @@
+{
+  "splits": "splits.json",
+  "arch": "googlenet",
+  "epochs": 25,
+  "lr": 0.0001,
+  "batch": 8,
+  "out": "experiments/cls_googlenet"
+}

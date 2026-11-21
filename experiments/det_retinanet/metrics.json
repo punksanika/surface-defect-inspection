@@ -1,0 +1,17 @@
+{
+  "mAP50": 0.5485094400482161,
+  "AP50_per_class": {
+    "bent": 0.6025,
+    "color": 0.267816091954023,
+    "flip": 1.0,
+    "scratch": 0.32372166823884163
+  },
+  "AP50_class_agnostic": 0.6688465567663262,
+  "ms_per_image": 86.46441408330456,
+  "model": "retinanet",
+  "best_val_mAP50": 0.5811611999111999,
+  "train_time_s": 277.4,
+  "n_test_images": 19,
+  "n_test_boxes": 24,
+  "params_millions": 32.23
+}

@@ -1,0 +1,6 @@
+{
+  "splits": "splits.json",
+  "backbone": "wide_resnet50_2",
+  "coreset_ratio": 0.1,
+  "out": "experiments/patchcore_wrn50"
+}

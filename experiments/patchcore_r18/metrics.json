@@ -1,0 +1,29 @@
+{
+  "val_image_auroc": 0.9978632478632479,
+  "test_image_auroc": 0.9736842105263157,
+  "test_pixel_auroc": 0.9925750495372919,
+  "test_mean_iou_defects": 0.5129053322818089,
+  "pixel_threshold": 1.7748897075653076,
+  "test_at_val_threshold": {
+    "threshold": 2.0493946075439453,
+    "TP": 18,
+    "FP": 1,
+    "FN": 1,
+    "TN": 25,
+    "recall_catch_rate": 0.9473684210526315,
+    "escape_rate": 0.052631578947368474,
+    "false_reject_rate": 0.038461538461538464,
+    "precision": 0.9473684210526315,
+    "f1": 0.9473684210526315
+  },
+  "ms_per_image": 29.51947149999383,
+  "fps": 33.87594523838982,
+  "n_test_good": 26,
+  "n_test_defect": 19,
+  "per_type": {
+    "bent": "5/5 caught",
+    "color": "3/4 caught",
+    "flip": "5/5 caught",
+    "scratch": "5/5 caught"
+  }
+}

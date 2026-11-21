@@ -1,0 +1,17 @@
+{
+  "mAP50": 0.8201086956521739,
+  "AP50_per_class": {
+    "bent": 0.9,
+    "color": 0.75,
+    "flip": 1.0,
+    "scratch": 0.6304347826086956
+  },
+  "AP50_class_agnostic": 0.8171401515151516,
+  "ms_per_image": 157.89696966667086,
+  "model": "fasterrcnn",
+  "best_val_mAP50": 0.9037025226757369,
+  "train_time_s": 377.7,
+  "n_test_images": 19,
+  "n_test_boxes": 24,
+  "params_millions": 41.31
+}

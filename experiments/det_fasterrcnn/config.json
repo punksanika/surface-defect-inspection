@@ -1,0 +1,9 @@
+{
+  "splits": "splits.json",
+  "model": "fasterrcnn",
+  "epochs": 20,
+  "lr": 0.0001,
+  "batch": 4,
+  "device": "auto",
+  "out": "experiments/det_fasterrcnn"
+}

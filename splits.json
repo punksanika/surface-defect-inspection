@@ -1,0 +1,3318 @@
+{
+  "seed": 42,
+  "root": "data/mvtec/metal_nut",
+  "counts": {
+    "train/good": 220,
+    "test/bent": 25,
+    "test/color": 22,
+    "test/flip": 23,
+    "test/good": 22,
+    "test/scratch": 23,
+    "ground_truth/bent": 25,
+    "ground_truth/color": 22,
+    "ground_truth/flip": 23,
+    "ground_truth/scratch": 23
+  },
+  "duplicates_removed": [],
+  "splits": {
+    "train_good": [
+      {
+        "path": "data/mvtec/metal_nut/train/good/172.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/004.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/042.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/047.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/005.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/132.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/003.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/015.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/213.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/134.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/202.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/160.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/106.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/078.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/131.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/145.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/064.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/119.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/010.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/081.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/174.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/009.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/012.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/038.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/165.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/061.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/161.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/170.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/120.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/073.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/142.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/066.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/077.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/206.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/102.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/000.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/110.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/176.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/177.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/037.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/098.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/138.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/123.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/126.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/089.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/184.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/215.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/032.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/168.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/186.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/084.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/048.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/156.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/122.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/076.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/099.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/205.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/080.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/019.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/198.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/196.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/169.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/113.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/065.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/208.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/218.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/046.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/124.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/100.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/054.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/152.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/105.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/181.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/140.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/157.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/095.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/164.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/155.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/033.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/190.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/128.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/082.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/194.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/063.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/130.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/121.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/125.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/171.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/112.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/072.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/146.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/027.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/127.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/034.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/051.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/193.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/103.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/203.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/153.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/014.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/083.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/211.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/069.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/148.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/118.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/144.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/214.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/136.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/043.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/018.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/068.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/053.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/090.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/094.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/041.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/093.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/116.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/191.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/209.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/025.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/199.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/162.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/074.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/058.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/167.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/017.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/049.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/147.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/092.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/158.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/075.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/141.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/020.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/096.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/031.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/137.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/117.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/011.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/067.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/197.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/088.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/091.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/024.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/097.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/201.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/210.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/086.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/200.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/039.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/185.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/087.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/204.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/178.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/040.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/001.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/071.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/150.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/114.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/056.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/107.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/207.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/179.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/166.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/183.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/050.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/143.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/217.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/154.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/129.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/059.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/055.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/023.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/007.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/008.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/108.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/151.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/022.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/139.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/216.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/173.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/026.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/188.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/035.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/057.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/062.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/070.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/189.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/006.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/028.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/163.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      }
+    ],
+    "val": [
+      {
+        "path": "data/mvtec/metal_nut/test/good/012.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/085.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/212.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/016.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/good/018.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/159.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/good/019.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/good/007.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/good/009.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/good/010.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/good/016.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/135.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/good/005.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/036.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/045.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/195.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/175.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/good/001.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/219.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/good/020.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/192.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/good/011.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/180.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/044.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/101.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/021.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/bent/005.png",
+        "label": "bent",
+        "mask": "data/mvtec/metal_nut/ground_truth/bent/005_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              40,
+              315,
+              125,
+              446
+            ],
+            "area": 7085
+          },
+          {
+            "bbox": [
+              315,
+              577,
+              416,
+              631
+            ],
+            "area": 3766
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/bent/007.png",
+        "label": "bent",
+        "mask": "data/mvtec/metal_nut/ground_truth/bent/007_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              565,
+              355,
+              619,
+              456
+            ],
+            "area": 3458
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/bent/024.png",
+        "label": "bent",
+        "mask": "data/mvtec/metal_nut/ground_truth/bent/024_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              561,
+              349,
+              675,
+              470
+            ],
+            "area": 9177
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/bent/000.png",
+        "label": "bent",
+        "mask": "data/mvtec/metal_nut/ground_truth/bent/000_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              245,
+              37,
+              399,
+              129
+            ],
+            "area": 8157
+          },
+          {
+            "bbox": [
+              571,
+              181,
+              667,
+              414
+            ],
+            "area": 14868
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/bent/022.png",
+        "label": "bent",
+        "mask": "data/mvtec/metal_nut/ground_truth/bent/022_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              568,
+              287,
+              670,
+              383
+            ],
+            "area": 6818
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/color/011.png",
+        "label": "color",
+        "mask": "data/mvtec/metal_nut/ground_truth/color/011_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              315,
+              44,
+              439,
+              258
+            ],
+            "area": 13878
+          },
+          {
+            "bbox": [
+              395,
+              84,
+              500,
+              272
+            ],
+            "area": 8123
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/color/021.png",
+        "label": "color",
+        "mask": "data/mvtec/metal_nut/ground_truth/color/021_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              75,
+              143,
+              523,
+              288
+            ],
+            "area": 13743
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/color/001.png",
+        "label": "color",
+        "mask": "data/mvtec/metal_nut/ground_truth/color/001_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              462,
+              216,
+              600,
+              288
+            ],
+            "area": 2771
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/color/018.png",
+        "label": "color",
+        "mask": "data/mvtec/metal_nut/ground_truth/color/018_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              172,
+              212,
+              295,
+              347
+            ],
+            "area": 9301
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/color/009.png",
+        "label": "color",
+        "mask": "data/mvtec/metal_nut/ground_truth/color/009_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              61,
+              217,
+              266,
+              308
+            ],
+            "area": 8684
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/flip/009.png",
+        "label": "flip",
+        "mask": "data/mvtec/metal_nut/ground_truth/flip/009_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              46,
+              39,
+              659,
+              658
+            ],
+            "area": 236365
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/flip/018.png",
+        "label": "flip",
+        "mask": "data/mvtec/metal_nut/ground_truth/flip/018_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              53,
+              50,
+              657,
+              655
+            ],
+            "area": 235196
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/flip/003.png",
+        "label": "flip",
+        "mask": "data/mvtec/metal_nut/ground_truth/flip/003_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              45,
+              35,
+              661,
+              658
+            ],
+            "area": 238487
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/flip/012.png",
+        "label": "flip",
+        "mask": "data/mvtec/metal_nut/ground_truth/flip/012_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              44,
+              34,
+              665,
+              662
+            ],
+            "area": 234723
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/scratch/007.png",
+        "label": "scratch",
+        "mask": "data/mvtec/metal_nut/ground_truth/scratch/007_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              408,
+              67,
+              533,
+              164
+            ],
+            "area": 6218
+          },
+          {
+            "bbox": [
+              442,
+              149,
+              591,
+              327
+            ],
+            "area": 8715
+          },
+          {
+            "bbox": [
+              197,
+              444,
+              331,
+              554
+            ],
+            "area": 6845
+          },
+          {
+            "bbox": [
+              344,
+              464,
+              505,
+              633
+            ],
+            "area": 5524
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/scratch/000.png",
+        "label": "scratch",
+        "mask": "data/mvtec/metal_nut/ground_truth/scratch/000_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              344,
+              408,
+              515,
+              548
+            ],
+            "area": 9302
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/scratch/002.png",
+        "label": "scratch",
+        "mask": "data/mvtec/metal_nut/ground_truth/scratch/002_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              197,
+              107,
+              648,
+              492
+            ],
+            "area": 57360
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/scratch/010.png",
+        "label": "scratch",
+        "mask": "data/mvtec/metal_nut/ground_truth/scratch/010_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              66,
+              77,
+              585,
+              304
+            ],
+            "area": 45642
+          },
+          {
+            "bbox": [
+              435,
+              82,
+              616,
+              253
+            ],
+            "area": 12732
+          }
+        ]
+      }
+    ],
+    "test": [
+      {
+        "path": "data/mvtec/metal_nut/test/good/006.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/111.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/060.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/104.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/002.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/182.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/052.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/good/008.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/109.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/good/013.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/149.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/good/017.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/good/015.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/079.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/187.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/good/021.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/good/002.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/115.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/030.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/good/003.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/013.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/029.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/good/004.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/good/000.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/good/014.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/train/good/133.png",
+        "label": "good",
+        "mask": null,
+        "instances": []
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/bent/001.png",
+        "label": "bent",
+        "mask": "data/mvtec/metal_nut/ground_truth/bent/001_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              411,
+              562,
+              553,
+              653
+            ],
+            "area": 8413
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/bent/003.png",
+        "label": "bent",
+        "mask": "data/mvtec/metal_nut/ground_truth/bent/003_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              573,
+              203,
+              658,
+              369
+            ],
+            "area": 9132
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/bent/017.png",
+        "label": "bent",
+        "mask": "data/mvtec/metal_nut/ground_truth/bent/017_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              495,
+              352,
+              654,
+              473
+            ],
+            "area": 9041
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/bent/014.png",
+        "label": "bent",
+        "mask": "data/mvtec/metal_nut/ground_truth/bent/014_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              468,
+              91,
+              550,
+              188
+            ],
+            "area": 5223
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/bent/002.png",
+        "label": "bent",
+        "mask": "data/mvtec/metal_nut/ground_truth/bent/002_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              59,
+              370,
+              129,
+              473
+            ],
+            "area": 4763
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/color/006.png",
+        "label": "color",
+        "mask": "data/mvtec/metal_nut/ground_truth/color/006_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              93,
+              205,
+              192,
+              283
+            ],
+            "area": 3820
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/color/004.png",
+        "label": "color",
+        "mask": "data/mvtec/metal_nut/ground_truth/color/004_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              194,
+              277,
+              271,
+              389
+            ],
+            "area": 2212
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/color/015.png",
+        "label": "color",
+        "mask": "data/mvtec/metal_nut/ground_truth/color/015_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              217,
+              165,
+              494,
+              371
+            ],
+            "area": 23333
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/color/017.png",
+        "label": "color",
+        "mask": "data/mvtec/metal_nut/ground_truth/color/017_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              278,
+              528,
+              482,
+              656
+            ],
+            "area": 16277
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/flip/007.png",
+        "label": "flip",
+        "mask": "data/mvtec/metal_nut/ground_truth/flip/007_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              43,
+              35,
+              665,
+              661
+            ],
+            "area": 237959
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/flip/021.png",
+        "label": "flip",
+        "mask": "data/mvtec/metal_nut/ground_truth/flip/021_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              54,
+              48,
+              656,
+              652
+            ],
+            "area": 236046
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/flip/019.png",
+        "label": "flip",
+        "mask": "data/mvtec/metal_nut/ground_truth/flip/019_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              42,
+              37,
+              663,
+              659
+            ],
+            "area": 236666
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/flip/002.png",
+        "label": "flip",
+        "mask": "data/mvtec/metal_nut/ground_truth/flip/002_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              43,
+              34,
+              664,
+              658
+            ],
+            "area": 236355
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/flip/005.png",
+        "label": "flip",
+        "mask": "data/mvtec/metal_nut/ground_truth/flip/005_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              42,
+              35,
+              664,
+              659
+            ],
+            "area": 235361
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/scratch/014.png",
+        "label": "scratch",
+        "mask": "data/mvtec/metal_nut/ground_truth/scratch/014_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              100,
+              391,
+              528,
+              620
+            ],
+            "area": 18253
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/scratch/009.png",
+        "label": "scratch",
+        "mask": "data/mvtec/metal_nut/ground_truth/scratch/009_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              196,
+              45,
+              505,
+              222
+            ],
+            "area": 31133
+          },
+          {
+            "bbox": [
+              573,
+              199,
+              655,
+              366
+            ],
+            "area": 8943
+          },
+          {
+            "bbox": [
+              169,
+              206,
+              279,
+              283
+            ],
+            "area": 3146
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/scratch/020.png",
+        "label": "scratch",
+        "mask": "data/mvtec/metal_nut/ground_truth/scratch/020_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              209,
+              453,
+              368,
+              603
+            ],
+            "area": 16654
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/scratch/021.png",
+        "label": "scratch",
+        "mask": "data/mvtec/metal_nut/ground_truth/scratch/021_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              59,
+              316,
+              451,
+              556
+            ],
+            "area": 33969
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/scratch/004.png",
+        "label": "scratch",
+        "mask": "data/mvtec/metal_nut/ground_truth/scratch/004_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              253,
+              51,
+              307,
+              92
+            ],
+            "area": 1731
+          },
+          {
+            "bbox": [
+              147,
+              160,
+              256,
+              417
+            ],
+            "area": 11576
+          },
+          {
+            "bbox": [
+              64,
+              184,
+              130,
+              246
+            ],
+            "area": 2363
+          },
+          {
+            "bbox": [
+              50,
+              230,
+              94,
+              415
+            ],
+            "area": 4579
+          }
+        ]
+      }
+    ],
+    "sup_train": [
+      {
+        "path": "data/mvtec/metal_nut/test/bent/012.png",
+        "label": "bent",
+        "mask": "data/mvtec/metal_nut/ground_truth/bent/012_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              562,
+              303,
+              655,
+              485
+            ],
+            "area": 10764
+          },
+          {
+            "bbox": [
+              569,
+              478,
+              596,
+              530
+            ],
+            "area": 986
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/bent/004.png",
+        "label": "bent",
+        "mask": "data/mvtec/metal_nut/ground_truth/bent/004_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              379,
+              63,
+              533,
+              161
+            ],
+            "area": 7685
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/bent/020.png",
+        "label": "bent",
+        "mask": "data/mvtec/metal_nut/ground_truth/bent/020_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              550,
+              318,
+              666,
+              483
+            ],
+            "area": 9625
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/bent/015.png",
+        "label": "bent",
+        "mask": "data/mvtec/metal_nut/ground_truth/bent/015_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              181,
+              67,
+              443,
+              261
+            ],
+            "area": 16131
+          },
+          {
+            "bbox": [
+              395,
+              82,
+              408,
+              96
+            ],
+            "area": 125
+          },
+          {
+            "bbox": [
+              96,
+              267,
+              211,
+              363
+            ],
+            "area": 1074
+          },
+          {
+            "bbox": [
+              91,
+              303,
+              130,
+              331
+            ],
+            "area": 259
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/bent/008.png",
+        "label": "bent",
+        "mask": "data/mvtec/metal_nut/ground_truth/bent/008_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              441,
+              64,
+              598,
+              186
+            ],
+            "area": 9843
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/bent/011.png",
+        "label": "bent",
+        "mask": "data/mvtec/metal_nut/ground_truth/bent/011_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              380,
+              0,
+              479,
+              128
+            ],
+            "area": 7137
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/bent/009.png",
+        "label": "bent",
+        "mask": "data/mvtec/metal_nut/ground_truth/bent/009_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              547,
+              400,
+              671,
+              500
+            ],
+            "area": 8317
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/bent/010.png",
+        "label": "bent",
+        "mask": "data/mvtec/metal_nut/ground_truth/bent/010_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              494,
+              228,
+              649,
+              412
+            ],
+            "area": 12846
+          },
+          {
+            "bbox": [
+              546,
+              304,
+              584,
+              398
+            ],
+            "area": 1159
+          },
+          {
+            "bbox": [
+              600,
+              401,
+              611,
+              420
+            ],
+            "area": 135
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/bent/019.png",
+        "label": "bent",
+        "mask": "data/mvtec/metal_nut/ground_truth/bent/019_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              550,
+              277,
+              671,
+              487
+            ],
+            "area": 13930
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/bent/018.png",
+        "label": "bent",
+        "mask": "data/mvtec/metal_nut/ground_truth/bent/018_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              133,
+              39,
+              273,
+              186
+            ],
+            "area": 10959
+          },
+          {
+            "bbox": [
+              174,
+              202,
+              220,
+              232
+            ],
+            "area": 930
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/bent/023.png",
+        "label": "bent",
+        "mask": "data/mvtec/metal_nut/ground_truth/bent/023_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              197,
+              31,
+              353,
+              148
+            ],
+            "area": 10494
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/bent/021.png",
+        "label": "bent",
+        "mask": "data/mvtec/metal_nut/ground_truth/bent/021_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              140,
+              532,
+              295,
+              655
+            ],
+            "area": 9838
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/bent/013.png",
+        "label": "bent",
+        "mask": "data/mvtec/metal_nut/ground_truth/bent/013_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              53,
+              91,
+              150,
+              268
+            ],
+            "area": 11716
+          },
+          {
+            "bbox": [
+              162,
+              100,
+              179,
+              138
+            ],
+            "area": 430
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/bent/016.png",
+        "label": "bent",
+        "mask": "data/mvtec/metal_nut/ground_truth/bent/016_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              528,
+              422,
+              631,
+              547
+            ],
+            "area": 8326
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/bent/006.png",
+        "label": "bent",
+        "mask": "data/mvtec/metal_nut/ground_truth/bent/006_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              43,
+              390,
+              134,
+              513
+            ],
+            "area": 6810
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/color/010.png",
+        "label": "color",
+        "mask": "data/mvtec/metal_nut/ground_truth/color/010_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              488,
+              275,
+              656,
+              501
+            ],
+            "area": 16024
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/color/003.png",
+        "label": "color",
+        "mask": "data/mvtec/metal_nut/ground_truth/color/003_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              483,
+              511,
+              507,
+              528
+            ],
+            "area": 319
+          },
+          {
+            "bbox": [
+              514,
+              526,
+              534,
+              543
+            ],
+            "area": 270
+          },
+          {
+            "bbox": [
+              435,
+              543,
+              467,
+              570
+            ],
+            "area": 586
+          },
+          {
+            "bbox": [
+              565,
+              543,
+              579,
+              561
+            ],
+            "area": 185
+          },
+          {
+            "bbox": [
+              484,
+              552,
+              502,
+              567
+            ],
+            "area": 218
+          },
+          {
+            "bbox": [
+              511,
+              571,
+              540,
+              596
+            ],
+            "area": 431
+          },
+          {
+            "bbox": [
+              466,
+              590,
+              491,
+              608
+            ],
+            "area": 358
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/color/002.png",
+        "label": "color",
+        "mask": "data/mvtec/metal_nut/ground_truth/color/002_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              38,
+              315,
+              115,
+              414
+            ],
+            "area": 5585
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/color/012.png",
+        "label": "color",
+        "mask": "data/mvtec/metal_nut/ground_truth/color/012_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              368,
+              59,
+              623,
+              303
+            ],
+            "area": 32188
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/color/020.png",
+        "label": "color",
+        "mask": "data/mvtec/metal_nut/ground_truth/color/020_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              235,
+              53,
+              362,
+              276
+            ],
+            "area": 17990
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/color/016.png",
+        "label": "color",
+        "mask": "data/mvtec/metal_nut/ground_truth/color/016_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              478,
+              176,
+              620,
+              322
+            ],
+            "area": 12301
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/color/019.png",
+        "label": "color",
+        "mask": "data/mvtec/metal_nut/ground_truth/color/019_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              518,
+              154,
+              586,
+              410
+            ],
+            "area": 11183
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/color/007.png",
+        "label": "color",
+        "mask": "data/mvtec/metal_nut/ground_truth/color/007_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              460,
+              208,
+              558,
+              338
+            ],
+            "area": 6759
+          },
+          {
+            "bbox": [
+              448,
+              306,
+              458,
+              318
+            ],
+            "area": 106
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/color/014.png",
+        "label": "color",
+        "mask": "data/mvtec/metal_nut/ground_truth/color/014_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              489,
+              262,
+              646,
+              344
+            ],
+            "area": 5992
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/color/013.png",
+        "label": "color",
+        "mask": "data/mvtec/metal_nut/ground_truth/color/013_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              408,
+              402,
+              606,
+              525
+            ],
+            "area": 11259
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/color/005.png",
+        "label": "color",
+        "mask": "data/mvtec/metal_nut/ground_truth/color/005_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              260,
+              454,
+              371,
+              532
+            ],
+            "area": 5610
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/color/000.png",
+        "label": "color",
+        "mask": "data/mvtec/metal_nut/ground_truth/color/000_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              397,
+              177,
+              469,
+              219
+            ],
+            "area": 2135
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/color/008.png",
+        "label": "color",
+        "mask": "data/mvtec/metal_nut/ground_truth/color/008_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              349,
+              60,
+              597,
+              350
+            ],
+            "area": 22563
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/flip/017.png",
+        "label": "flip",
+        "mask": "data/mvtec/metal_nut/ground_truth/flip/017_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              40,
+              37,
+              665,
+              666
+            ],
+            "area": 238751
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/flip/004.png",
+        "label": "flip",
+        "mask": "data/mvtec/metal_nut/ground_truth/flip/004_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              44,
+              38,
+              665,
+              659
+            ],
+            "area": 234904
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/flip/016.png",
+        "label": "flip",
+        "mask": "data/mvtec/metal_nut/ground_truth/flip/016_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              42,
+              36,
+              665,
+              661
+            ],
+            "area": 238493
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/flip/015.png",
+        "label": "flip",
+        "mask": "data/mvtec/metal_nut/ground_truth/flip/015_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              43,
+              38,
+              665,
+              659
+            ],
+            "area": 235892
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/flip/011.png",
+        "label": "flip",
+        "mask": "data/mvtec/metal_nut/ground_truth/flip/011_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              43,
+              38,
+              663,
+              663
+            ],
+            "area": 234959
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/flip/010.png",
+        "label": "flip",
+        "mask": "data/mvtec/metal_nut/ground_truth/flip/010_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              65,
+              60,
+              637,
+              638
+            ],
+            "area": 236323
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/flip/020.png",
+        "label": "flip",
+        "mask": "data/mvtec/metal_nut/ground_truth/flip/020_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              56,
+              51,
+              652,
+              647
+            ],
+            "area": 236216
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/flip/022.png",
+        "label": "flip",
+        "mask": "data/mvtec/metal_nut/ground_truth/flip/022_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              42,
+              37,
+              666,
+              663
+            ],
+            "area": 235963
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/flip/008.png",
+        "label": "flip",
+        "mask": "data/mvtec/metal_nut/ground_truth/flip/008_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              47,
+              41,
+              660,
+              652
+            ],
+            "area": 234449
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/flip/006.png",
+        "label": "flip",
+        "mask": "data/mvtec/metal_nut/ground_truth/flip/006_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              43,
+              39,
+              661,
+              658
+            ],
+            "area": 235543
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/flip/001.png",
+        "label": "flip",
+        "mask": "data/mvtec/metal_nut/ground_truth/flip/001_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              44,
+              36,
+              665,
+              663
+            ],
+            "area": 238718
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/flip/013.png",
+        "label": "flip",
+        "mask": "data/mvtec/metal_nut/ground_truth/flip/013_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              43,
+              34,
+              663,
+              659
+            ],
+            "area": 234720
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/flip/000.png",
+        "label": "flip",
+        "mask": "data/mvtec/metal_nut/ground_truth/flip/000_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              48,
+              43,
+              664,
+              656
+            ],
+            "area": 237351
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/flip/014.png",
+        "label": "flip",
+        "mask": "data/mvtec/metal_nut/ground_truth/flip/014_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              42,
+              34,
+              666,
+              659
+            ],
+            "area": 234692
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/scratch/018.png",
+        "label": "scratch",
+        "mask": "data/mvtec/metal_nut/ground_truth/scratch/018_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              343,
+              60,
+              502,
+              253
+            ],
+            "area": 10001
+          },
+          {
+            "bbox": [
+              114,
+              390,
+              258,
+              594
+            ],
+            "area": 9394
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/scratch/005.png",
+        "label": "scratch",
+        "mask": "data/mvtec/metal_nut/ground_truth/scratch/005_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              269,
+              111,
+              491,
+              207
+            ],
+            "area": 12797
+          },
+          {
+            "bbox": [
+              566,
+              162,
+              618,
+              223
+            ],
+            "area": 1614
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/scratch/012.png",
+        "label": "scratch",
+        "mask": "data/mvtec/metal_nut/ground_truth/scratch/012_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              307,
+              47,
+              623,
+              551
+            ],
+            "area": 57596
+          },
+          {
+            "bbox": [
+              578,
+              289,
+              628,
+              394
+            ],
+            "area": 2677
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/scratch/006.png",
+        "label": "scratch",
+        "mask": "data/mvtec/metal_nut/ground_truth/scratch/006_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              124,
+              107,
+              328,
+              290
+            ],
+            "area": 12395
+          },
+          {
+            "bbox": [
+              201,
+              150,
+              371,
+              257
+            ],
+            "area": 851
+          },
+          {
+            "bbox": [
+              226,
+              157,
+              392,
+              278
+            ],
+            "area": 1467
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/scratch/015.png",
+        "label": "scratch",
+        "mask": "data/mvtec/metal_nut/ground_truth/scratch/015_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              145,
+              210,
+              267,
+              329
+            ],
+            "area": 7374
+          },
+          {
+            "bbox": [
+              412,
+              418,
+              565,
+              577
+            ],
+            "area": 8703
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/scratch/016.png",
+        "label": "scratch",
+        "mask": "data/mvtec/metal_nut/ground_truth/scratch/016_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              387,
+              215,
+              648,
+              297
+            ],
+            "area": 14432
+          },
+          {
+            "bbox": [
+              38,
+              258,
+              269,
+              371
+            ],
+            "area": 12697
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/scratch/017.png",
+        "label": "scratch",
+        "mask": "data/mvtec/metal_nut/ground_truth/scratch/017_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              393,
+              358,
+              653,
+              462
+            ],
+            "area": 14082
+          },
+          {
+            "bbox": [
+              113,
+              465,
+              350,
+              572
+            ],
+            "area": 9262
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/scratch/022.png",
+        "label": "scratch",
+        "mask": "data/mvtec/metal_nut/ground_truth/scratch/022_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              275,
+              443,
+              516,
+              662
+            ],
+            "area": 36121
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/scratch/003.png",
+        "label": "scratch",
+        "mask": "data/mvtec/metal_nut/ground_truth/scratch/003_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              122,
+              66,
+              411,
+              239
+            ],
+            "area": 21564
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/scratch/008.png",
+        "label": "scratch",
+        "mask": "data/mvtec/metal_nut/ground_truth/scratch/008_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              442,
+              108,
+              607,
+              207
+            ],
+            "area": 8649
+          },
+          {
+            "bbox": [
+              151,
+              196,
+              615,
+              335
+            ],
+            "area": 18280
+          },
+          {
+            "bbox": [
+              258,
+              569,
+              410,
+              654
+            ],
+            "area": 7643
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/scratch/011.png",
+        "label": "scratch",
+        "mask": "data/mvtec/metal_nut/ground_truth/scratch/011_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              558,
+              317,
+              656,
+              480
+            ],
+            "area": 8386
+          },
+          {
+            "bbox": [
+              71,
+              368,
+              572,
+              588
+            ],
+            "area": 20562
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/scratch/001.png",
+        "label": "scratch",
+        "mask": "data/mvtec/metal_nut/ground_truth/scratch/001_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              323,
+              337,
+              610,
+              625
+            ],
+            "area": 34888
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/scratch/013.png",
+        "label": "scratch",
+        "mask": "data/mvtec/metal_nut/ground_truth/scratch/013_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              212,
+              62,
+              303,
+              287
+            ],
+            "area": 10557
+          },
+          {
+            "bbox": [
+              329,
+              454,
+              442,
+              651
+            ],
+            "area": 10842
+          }
+        ]
+      },
+      {
+        "path": "data/mvtec/metal_nut/test/scratch/019.png",
+        "label": "scratch",
+        "mask": "data/mvtec/metal_nut/ground_truth/scratch/019_mask.png",
+        "instances": [
+          {
+            "bbox": [
+              452,
+              131,
+              650,
+              402
+            ],
+            "area": 27262
+          }
+        ]
+      }
+    ]
+  }
+}

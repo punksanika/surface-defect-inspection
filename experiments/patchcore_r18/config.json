@@ -1,0 +1,6 @@
+{
+  "splits": "splits.json",
+  "backbone": "resnet18",
+  "coreset_ratio": 0.1,
+  "out": "experiments/patchcore_r18"
+}

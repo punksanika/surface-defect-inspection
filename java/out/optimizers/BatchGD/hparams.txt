@@ -1,0 +1,9 @@
+layers=[2, 16, 1]
+hidden_activation=TANH
+optimizer=GD(lr=0.5)
+epochs=300
+batch_size=200
+l2=0.0
+seed=5
+final_train_acc=0.9250
+final_val_acc=0.9500
