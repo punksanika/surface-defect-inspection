@@ -14,7 +14,7 @@ Pages (choose in the sidebar):
 Pipeline per image:
   1. PatchCore (ResNet-18 memory bank)  -> anomaly score + heatmap -> PASS / REJECT (threshold chosen on val)
   2. if REJECT: ResNet-18 classifier     -> defect type (bent / color / flip / scratch)
-  3. optional:  RetinaNet                -> boxes around defect instances
+  3. optional:  Faster R-CNN or RetinaNet -> boxes around defect instances
 
 Every number shown on the Results page is read from files written by the training/evaluation
 scripts, nothing is typed in by hand.
@@ -45,7 +45,10 @@ PC_MODELS = {                               # name shown in the app -> folder wi
     "Noise-robust PatchCore": EXP / "patchcore_r18_robust",
 }
 CLS_DIR = EXP / "cls_resnet18"
-DET_DIR = EXP / "det_retinanet"
+DETECTORS = {                               # name shown in the app -> (build_model name, folder with best.pt)
+    "Faster R-CNN (more accurate)": ("fasterrcnn", EXP / "det_fasterrcnn"),
+    "RetinaNet (faster)": ("retinanet", EXP / "det_retinanet"),
+}
 
 
 # ================================================================ model loading (cached = loaded once)
@@ -66,10 +69,11 @@ def load_classifier():
 
 
 @st.cache_resource
-def load_detector():
+def load_detector(name):
     import detector as dt
-    m = dt.build_model("retinanet")
-    m.load_state_dict(torch.load(DET_DIR / "best.pt", map_location="cpu"))
+    arch, folder = DETECTORS[name]
+    m = dt.build_model(arch)
+    m.load_state_dict(torch.load(folder / "best.pt", map_location="cpu"))
     return m.to(DEVICE).eval(), dt
 
 
@@ -130,7 +134,12 @@ def page_inspection():
     st.header("Inspect one image")
     img, true_label = pick_image("insp")
     model_name = st.sidebar.radio("PatchCore model", list(PC_MODELS), key="insp_model")
-    show_boxes = st.sidebar.checkbox("Also run RetinaNet boxes", value=False)
+    show_boxes = st.sidebar.checkbox("Also draw defect boxes (detector)", value=False)
+    if show_boxes:
+        det_name = st.sidebar.radio("Detector", list(DETECTORS), key="insp_det")
+        min_score = st.sidebar.slider("Minimum box score", 0.05, 0.95, 0.5, 0.05,
+                                      help="Boxes below this confidence are hidden. RetinaNet's scores are "
+                                           "often lower than Faster R-CNN's.")
 
     img224 = img.resize((pc.IMG_SIZE, pc.IMG_SIZE))
     t0 = time.perf_counter()
@@ -158,17 +167,32 @@ def page_inspection():
         st.caption(f"{model_name} time: {t_pc:.1f} ms")
 
     if show_boxes:
-        det, dt = load_detector()
+        det, dt = load_detector(det_name)
         xd = dt.TF.to_tensor(img.resize((dt.SIZE, dt.SIZE)))
         with torch.no_grad():
             o = det([xd.to(DEVICE)])[0]
         from PIL import ImageDraw
-        im = img.resize((dt.SIZE, dt.SIZE)); d = ImageDraw.Draw(im)
-        for b, s, l in zip(o["boxes"].cpu(), o["scores"].cpu(), o["labels"].cpu()):
-            if s >= 0.5:
-                d.rectangle(b.tolist(), outline="red", width=3)
-                d.text((float(b[0]) + 3, float(b[1]) + 3), f"{dt.CLASSES[int(l)]} {float(s):.2f}", fill="red")
-        st.image(im, caption="RetinaNet detections (score ≥ 0.5)", width=420)
+        boxes, scores, labels = o["boxes"].cpu(), o["scores"].cpu(), o["labels"].cpu()
+        im = img.resize((dt.SIZE, dt.SIZE))
+        d = ImageDraw.Draw(im)
+        keep = [i for i in range(len(scores)) if scores[i] >= min_score]
+        for i in keep:                                        # confident boxes: red
+            b = boxes[i].tolist()
+            d.rectangle(b, outline="red", width=4)
+            d.text((b[0] + 4, b[1] + 4), f"{dt.CLASSES[int(labels[i])]} {float(scores[i]):.2f}", fill="red")
+        if keep:
+            st.success(f"{len(keep)} box(es) with score ≥ {min_score:.2f}")
+        elif len(scores):
+            # nothing passed the cut-off: still show the detector's single most confident guess, clearly marked
+            i = int(scores.argmax())
+            b = boxes[i].tolist()
+            d.rectangle(b, outline="orange", width=4)
+            d.text((b[0] + 4, b[1] + 4), f"{dt.CLASSES[int(labels[i])]} {float(scores[i]):.2f}", fill="orange")
+            st.warning(f"No box reaches score {min_score:.2f}. Orange = the detector's most confident guess "
+                       f"(score {float(scores[i]):.2f}, below the cut-off).")
+        else:
+            st.info("The detector found no box at all in this image.")
+        st.image(im, caption=f"{det_name}: red = score ≥ {min_score:.2f}", width=420)
 
 
 # ================================================================ page 2: live noise demo
@@ -314,7 +338,7 @@ digraph G {
   dec   [label="Image score = max patch\\nscore ≥ threshold?", shape=diamond, fillcolor="#ffffff"];
   pass  [label="PASS", fillcolor="#d8f3dc"];
   cls   [label="ResNet-18 classifier\\nbent / color / flip / scratch", fillcolor="#fde2e2"];
-  det   [label="RetinaNet (optional)\\nboxes", fillcolor="#fde2e2"];
+  det   [label="Faster R-CNN / RetinaNet\\n(optional) boxes", fillcolor="#fde2e2"];
   img -> pre -> feat -> knn -> dec;
   bank -> knn;
   dec -> pass [label="no"];
@@ -536,7 +560,7 @@ def page_fundamentals():
 # ================================================================ main
 st.set_page_config(page_title="Surface Defect Inspection", layout="wide")
 st.title("Industrial Surface Defect Inspection: metal_nut")
-st.caption("PatchCore (anomaly + location) → ResNet-18 (defect type) → RetinaNet (boxes). "
+st.caption("PatchCore (anomaly + location) → ResNet-18 (defect type) → Faster R-CNN / RetinaNet (boxes). "
            "Research prototype on MVTec AD (CC BY-NC-SA 4.0); not validated for production use.")
 PAGES = {"Inspection": page_inspection, "Noise demo": page_noise, "Results": page_results, "Pipeline": page_pipeline,
          "Fundamentals": page_fundamentals}
