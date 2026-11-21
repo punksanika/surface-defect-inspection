@@ -1,8 +1,9 @@
 """
 noise_robustness.py: choose a noise fix for PatchCore using the VALIDATION set only.
 
-Problem: in the Java robustness test, Gaussian noise (sigma 0.03 on pixels in [0,1]) made the
-original model reject 14/26 GOOD nuts. Noise adds tiny random changes to every pixel; the patch
+Problem: in the robustness test, Gaussian noise (sigma 0.03 on pixels in [0,1]) made the
+original model reject many GOOD nuts (final test-set numbers: experiments/robustness/, written by
+src/evaluate_robustness.py). Noise adds tiny random changes to every pixel; the patch
 features move away from the memory bank, so good patches look "unusual".
 
 Two fixes are tried, alone and together:
@@ -33,7 +34,7 @@ import patchcore as pc
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "experiments" / "noise_robustness"
-NOISE = 0.03                     # the noise level that failed in the Java test
+NOISE = 0.03                     # the noise level that failed in the robustness test
 NOISE_DRAWS = [1, 2, 3]          # seeds: each val image is tested with 3 different noise patterns
 BLURS = [0.0, 0.5, 1.0, 1.5, 2.0]
 COPIES = [0, 1]

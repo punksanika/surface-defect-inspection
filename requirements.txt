@@ -8,9 +8,5 @@ scipy==1.17.1            # prepare_data.py (connected components of defect masks
 scikit-learn==1.9.1      # AUROC, F1, confusion matrix
 matplotlib==3.11.2       # figures
 pandas==3.1.1            # tables in the Streamlit app
+pytest==9.2.0            # tests/ (fundamentals checks)
 streamlit==1.67.0        # demo app
-onnx==1.23.2             # export_onnx.py
-onnxruntime==1.32.0      # export_onnx.py (checks ONNX output equals PyTorch output)
-
-# Java side (not pip): Java 25 + ONNX Runtime Java jar
-#   lib/onnxruntime-1.23.0.jar   (Maven Central: com.microsoft.onnxruntime:onnxruntime:1.23.0)

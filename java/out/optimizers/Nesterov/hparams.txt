@@ -1,9 +1,0 @@
-layers=[2, 16, 1]
-hidden_activation=TANH
-optimizer=NESTEROV(lr=0.5, mu=0.9)
-epochs=300
-batch_size=200
-l2=0.0
-seed=5
-final_train_acc=0.9950
-final_val_acc=0.9700

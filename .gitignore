@@ -7,15 +7,9 @@ __pycache__/
 # Dataset (MVTec AD licence: CC BY-NC-SA 4.0 -> download it yourself, see README)
 data/
 
-# ONNX Runtime Java library (75 MB) -> download from Maven Central, see README
-lib/*.jar
-
 # Model weights / memory banks (18-166 MB) -> re-create with the scripts
 *.pt
 
-# Compiled Java classes (re-create with javac)
-target/
-java/target/
-
 # macOS
 .DS_Store
+.pytest_cache/

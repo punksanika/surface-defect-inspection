@@ -18,7 +18,7 @@ Pipeline (shapes for resnet18, 224x224 input):
 Noise-robust variant (optional, added for the robustness fix):
     python src/patchcore.py --blur_sigma 1.0 --noisy_copies 1 --aug_noise 0.03 --out experiments/patchcore_r18_robust
   --blur_sigma   : light Gaussian blur on the input image, built INTO the feature extractor
-                   (so it is also inside the ONNX file and the Java app gets it automatically).
+                   (saved with the memory bank, so every script that loads the model uses it).
   --noisy_copies : for every good training image, also put N noisy copies into the memory bank,
                    so "good nut + sensor noise" is remembered as normal.
   Defaults (0, 0) give exactly the original model.
@@ -54,7 +54,7 @@ def get_device():
 def load_image(path, noise_sigma=0.0, generator=None):
     """Load, resize to 224, (optionally add noise), normalise.
     noise_sigma > 0 adds Gaussian noise to pixel values in [0,1] and clips back to [0,1].
-    This is EXACTLY what the Java robustness test does (Inspector.perturb), so both agree."""
+    The same perturbation is used by the robustness test (src/evaluate_robustness.py)."""
     img = Image.open(path).convert("RGB").resize((IMG_SIZE, IMG_SIZE), Image.BILINEAR)
     t = TF.to_tensor(img)                       # (3,H,W) in [0,1]
     if noise_sigma > 0:
