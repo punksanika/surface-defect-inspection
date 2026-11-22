@@ -74,13 +74,22 @@ def load_detector(name):
 
 
 # ================================================================ helpers
-def overlay(img224, amap, vmax):
+def overlay(img224, amap, model_name):
+    """Colour only the unusual pixels, using the model's validation-chosen thresholds:
+       below the pixel threshold        -> no colour (the nut is shown as it is)
+       pixel threshold .. image threshold -> yellow -> orange -> red (red = as unusual as a REJECT)
+    So a good nut stays clean and a defect shows up as a clear red spot."""
     import matplotlib
     matplotlib.use("Agg")
     from matplotlib import cm
-    a = np.clip(amap.numpy() / vmax, 0, 1)
-    heat = (cm.jet(a)[..., :3] * 255).astype(np.uint8)
-    return Image.blend(img224, Image.fromarray(heat), alpha=0.45)
+    thr = load_patchcore(str(PC_MODELS[model_name]))[2]
+    lo, hi = thr["pixel_threshold"], thr["image_threshold"]
+    a = amap.numpy()
+    t = np.clip((a - lo) / (hi - lo), 0, 1)
+    colour = cm.jet(0.6 + 0.4 * t)[..., :3] * 255          # 0.6 = yellow ... 1.0 = dark red on the jet scale
+    alpha = np.where(a >= lo, 0.35 + 0.35 * t, 0.0)[..., None]   # unusual pixels only, stronger when redder
+    base = np.asarray(img224).astype(np.float32)
+    return Image.fromarray((base * (1 - alpha) + colour * alpha).astype(np.uint8))
 
 
 def add_noise(img224, sigma, seed):
@@ -145,8 +154,8 @@ def page_inspection():
 
     c1, c2, c3 = st.columns(3)
     c1.image(img224, caption=f"Input (true label: {true_label})", width="stretch")
-    c2.image(overlay(img224, amap, max(float(amap.max()), thr * 1.5)),
-             caption="Anomaly heatmap (red = unusual)", width="stretch")
+    c2.image(overlay(img224, amap, model_name),
+             caption="Anomaly heatmap: coloured = unusual, red = as unusual as a REJECT", width="stretch")
     with c3:
         if reject:
             st.error(f"REJECT: anomaly score {score:.2f} ≥ threshold {thr:.2f}")
@@ -209,7 +218,7 @@ def page_noise():
     for col, name in zip(cols[1:], PC_MODELS):
         score, amap, thr = run_patchcore(name, noisy)
         clean_score, _, _ = run_patchcore(name, img224)
-        col.image(overlay(noisy, amap, max(float(amap.max()), thr * 1.5)), caption=name, width="stretch")
+        col.image(overlay(noisy, amap, name), caption=name, width="stretch")
         verdict = "REJECT" if score >= thr else "PASS"
         (col.error if verdict == "REJECT" else col.success)(
             f"{verdict}: score {score:.3f} (threshold {thr:.3f})")
