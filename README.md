@@ -98,6 +98,7 @@ src/vae.py                  variational autoencoder (generative model)
 src/report_transformer.py   small transformer that writes an inspection report
 src/evaluate_robustness.py  test both PatchCore models under brightness and noise changes
 app/streamlit_app.py        demo app: Inspection, Noise demo, Results, Pipeline
+tests/test_pipeline.py      automated checks (split, thresholds, model decisions, perturbations, results)
 experiments/                metrics, logs and figures of every run
 ```
 
@@ -145,7 +146,16 @@ python src/patchcore.py --noisy_copies 1 --aug_noise 0.03 --coreset_cpu --out ex
 python src/evaluate_robustness.py   # -> experiments/robustness/ (results.json, results.csv, before_after.md)
 ```
 
-### 5. Demo app
+### 5. Automated tests
+```bash
+python -m pytest -v                 # 11 checks, a few seconds
+```
+They check that the split has the documented sizes and no image in two splits; that both models have their
+validation-chosen thresholds; that PatchCore is deterministic, rejects a known scratch and passes a known good
+nut; that the robustness perturbations keep pixels in [0, 1]; and that the saved robustness results agree with
+their own TP/FP/FN/TN counts. The two model checks are skipped if `data/` or the `.pt` files are missing.
+
+### 6. Demo app
 ```bash
 streamlit run app/streamlit_app.py
 ```
@@ -156,3 +166,16 @@ original vs robust model), **Results** (all tables, read live from `experiments/
 - Small test set (45 images): one image changes a rate by 2–4 percentage points.
 - The noise fix is tuned for σ = 0.03 Gaussian noise; other noise types and levels were not tested.
 - The defect-type classifier only knows the 4 defect types seen in training.
+
+## Ethics and responsible use
+- **Data:** MVTec AD is used under its licence (CC BY-NC-SA 4.0: research and education, non-commercial). It
+  shows industrial parts only and contains no personal data. The dataset is not redistributed in this repository.
+- **Cost of errors:** a missed defect (escape) can reach a customer; a false reject wastes a good part. Both
+  rates are reported separately, not hidden inside one accuracy number, and the trade-off of the noise fix
+  (fewer false rejects, more missed subtle defects under noise) is stated openly.
+- **Human oversight:** the system should support an inspector, not replace one. REJECTed parts and uncertain
+  cases (scores close to the threshold) should be checked by a person before a decision is final.
+- **Scope:** the models only know this product (4-tab metal nut) under this camera setup. Other products,
+  backgrounds or lighting are out of distribution; the app warns about this when an image is uploaded.
+- **Evidence:** the test set is small (45 images), so the results are estimates, not guarantees. This is a
+  research prototype and has not been validated for production or safety-critical use.
