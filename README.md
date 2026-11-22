@@ -116,7 +116,7 @@ src/report_transformer.py   small transformer that writes an inspection report
 src/evaluate_robustness.py  test both PatchCore models under brightness and noise changes
 fundamentals/               deep-learning fundamentals from scratch in NumPy (requirements 3-6)
 tests/                      pytest checks for the fundamentals
-app/streamlit_app.py        demo app: Inspection, Noise demo, Results, Pipeline, Fundamentals
+app/streamlit_app.py        demo app: Inspection, Noise demo, Results, Pipeline
 experiments/                metrics, logs and figures of every run
 ```
 
@@ -175,8 +175,7 @@ python -m pytest                    # checks: broadcasting, reshape, SVD, backpr
 streamlit run app/streamlit_app.py
 ```
 Pages: **Inspection** (one image → PASS/REJECT, heatmap, type, boxes), **Noise demo** (slider adds noise,
-original vs robust model), **Results** (all tables, read live from `experiments/`), **Pipeline** (diagram),
-**Fundamentals** (NumPy modules: saved results + live demos of broadcasting, XOR training and Hopfield recall).
+original vs robust model), **Results** (all tables, read live from `experiments/`), **Pipeline** (diagram).
 
 ## Limitations
 - Small test set (45 images): one image changes a rate by 2–4 percentage points.
