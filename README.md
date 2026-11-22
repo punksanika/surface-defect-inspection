@@ -34,14 +34,15 @@ flowchart LR
 ## Results (test set)
 
 ### 1. Anomaly detection (PASS / REJECT)
-Threshold chosen on the validation set (maximum F1).
+Threshold chosen on the validation set (maximum F1). Accuracy = correct PASS/REJECT decisions out of the
+45 test images (TP + TN) / 45.
 
-| model | image AUROC | pixel AUROC | defects caught | good falsely rejected | F1 | ms / image (Python, MPS) |
-|---|---|---|---|---|---|---|
-| PatchCore ResNet-18 | 0.974 | 0.993 | 18/19 | 1/26 | 0.947 | 29.5 |
-| PatchCore ResNet-18 noise-robust | 0.962 | 0.992 | 18/19 | 1/26 | 0.947 | 27.5 |
-| PatchCore WideResNet-50 | 0.998 | 0.995 | 16/19 | 0/26 | 0.914 | 58.6 |
-| VAE reconstruction error | 0.666 | – | – | – | – | – |
+| model | accuracy | image AUROC | pixel AUROC | defects caught | good falsely rejected | F1 | ms / image (Python, MPS) |
+|---|---|---|---|---|---|---|---|
+| PatchCore ResNet-18 | 0.956 (43/45) | 0.974 | 0.993 | 18/19 | 1/26 | 0.947 | 29.5 |
+| PatchCore ResNet-18 noise-robust | 0.956 (43/45) | 0.962 | 0.992 | 18/19 | 1/26 | 0.947 | 27.5 |
+| PatchCore WideResNet-50 | 0.933 (42/45) | 0.998 | 0.995 | 16/19 | 0/26 | 0.914 | 58.6 |
+| VAE reconstruction error | – | 0.666 | – | – | – | – | – |
 
 ### 2. Defect type classification (4 classes)
 | model | params (M) | test accuracy | test macro-F1 | ms / image |

@@ -233,7 +233,10 @@ def robustness_table(model):
     for r in rows:
         if r["model"] != model:
             continue
-        out.append({"condition": r["condition"], "AUROC": r["auroc"],
+        n = r["TP"] + r["TN"] + r["FP"] + r["FN"]
+        out.append({"condition": r["condition"],
+                    "accuracy": f"{(r['TP'] + r['TN']) / n:.3f} ({r['TP'] + r['TN']}/{n})",
+                    "AUROC": r["auroc"],
                     "defects caught": f"{r['TP']}/{r['TP'] + r['FN']}",
                     "good falsely rejected": f"{r['FP']}/{r['FP'] + r['TN']}",
                     "FRR %": round(100 * r["FP"] / (r["FP"] + r["TN"]), 1), "F1": r["f1"],
@@ -264,7 +267,10 @@ def page_results():
         if m is None:
             continue
         b = m["test_at_val_threshold"]
-        rows.append({"model": name, "image AUROC": round(m["test_image_auroc"], 3),
+        n = b["TP"] + b["TN"] + b["FP"] + b["FN"]
+        # accuracy = correct PASS/REJECT decisions / all test images, from the saved confusion-matrix counts
+        rows.append({"model": name, "accuracy": f"{(b['TP'] + b['TN']) / n:.3f} ({b['TP'] + b['TN']}/{n})",
+                     "image AUROC": round(m["test_image_auroc"], 3),
                      "pixel AUROC": round(m["test_pixel_auroc"], 3),
                      "defects caught": f"{b['TP']}/{b['TP'] + b['FN']}",
                      "good falsely rejected": f"{b['FP']}/{b['FP'] + b['TN']}",
